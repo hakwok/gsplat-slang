@@ -8,6 +8,9 @@ from torch import Tensor
 from torch.autograd import Function
 
 import gsplat.cuda as _C
+
+# Import the PyTorch implementation instead
+from ._torch_impl import rasterize_forward
 from .utils import bin_and_sort_gaussians, compute_cumulative_intersects
 
 

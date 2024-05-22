@@ -1,0 +1,212 @@
+Total(s):
+Project: 0.332, Rasterize: 0.651, Backward: 0.635
+Total(s):
+Project: 0.122, Rasterize: 0.625, Backward: 0.490
+Total(s):
+Project: 0.123, Rasterize: 0.641, Backward: 0.508
+Total(s):
+Project: 0.124, Rasterize: 0.652, Backward: 0.478
+Total(s):
+Project: 0.123, Rasterize: 0.671, Backward: 0.537
+Total(s):
+Project: 0.127, Rasterize: 0.665, Backward: 0.483
+Total(s):
+Project: 0.118, Rasterize: 0.646, Backward: 0.463
+Total(s):
+Project: 0.119, Rasterize: 0.651, Backward: 0.480
+Total(s):
+Project: 0.119, Rasterize: 0.644, Backward: 0.465
+Total(s):
+Project: 0.122, Rasterize: 0.640, Backward: 0.506
+Total(s):
+Project: 0.119, Rasterize: 0.636, Backward: 0.458
+Total(s):
+Project: 0.121, Rasterize: 0.636, Backward: 0.459
+Total(s):
+Project: 0.117, Rasterize: 0.632, Backward: 0.447
+Total(s):
+Project: 0.124, Rasterize: 0.636, Backward: 0.467
+Total(s):
+Project: 0.122, Rasterize: 0.639, Backward: 0.461
+Total(s):
+Project: 0.121, Rasterize: 0.638, Backward: 0.457
+Total(s):
+Project: 0.124, Rasterize: 0.625, Backward: 0.475
+Total(s):
+Project: 0.123, Rasterize: 0.615, Backward: 0.466
+Total(s):
+Project: 0.125, Rasterize: 0.616, Backward: 0.465
+Total(s):
+Project: 0.122, Rasterize: 0.617, Backward: 0.459
+Total(s):
+Project: 0.126, Rasterize: 0.621, Backward: 0.486
+Total(s):
+Project: 0.123, Rasterize: 0.627, Backward: 0.510
+Total(s):
+Project: 0.126, Rasterize: 0.626, Backward: 0.528
+Total(s):
+Project: 0.128, Rasterize: 0.626, Backward: 0.469
+Total(s):
+Project: 0.124, Rasterize: 0.628, Backward: 0.496
+Total(s):
+Project: 0.128, Rasterize: 0.633, Backward: 0.478
+Total(s):
+Project: 0.121, Rasterize: 0.624, Backward: 0.466
+Total(s):
+Project: 0.136, Rasterize: 0.624, Backward: 0.442
+Total(s):
+Project: 0.122, Rasterize: 0.631, Backward: 0.456
+Total(s):
+Project: 0.119, Rasterize: 0.633, Backward: 0.448
+Total(s):
+Project: 0.118, Rasterize: 0.637, Backward: 0.449
+Total(s):
+Project: 0.122, Rasterize: 0.635, Backward: 0.471
+Total(s):
+Project: 0.123, Rasterize: 0.644, Backward: 0.475
+Total(s):
+Project: 0.124, Rasterize: 0.650, Backward: 0.464
+Total(s):
+Project: 0.122, Rasterize: 0.651, Backward: 0.471
+Total(s):
+Project: 0.127, Rasterize: 0.655, Backward: 0.474
+Total(s):
+Project: 0.123, Rasterize: 0.653, Backward: 0.472
+Total(s):
+Project: 0.118, Rasterize: 0.648, Backward: 0.446
+Total(s):
+Project: 0.119, Rasterize: 0.640, Backward: 0.461
+Total(s):
+Project: 0.121, Rasterize: 0.640, Backward: 0.447
+Total(s):
+Project: 0.118, Rasterize: 0.643, Backward: 0.450
+Total(s):
+Project: 0.120, Rasterize: 0.641, Backward: 0.459
+Total(s):
+Project: 0.122, Rasterize: 0.647, Backward: 0.471
+Total(s):
+Project: 0.123, Rasterize: 0.648, Backward: 0.470
+Total(s):
+Project: 0.123, Rasterize: 0.646, Backward: 0.468
+Total(s):
+Project: 0.125, Rasterize: 0.649, Backward: 0.469
+Total(s):
+Project: 0.122, Rasterize: 0.648, Backward: 0.469
+Total(s):
+Project: 0.124, Rasterize: 0.649, Backward: 0.471
+Total(s):
+Project: 0.124, Rasterize: 0.644, Backward: 0.470
+Total(s):
+Project: 0.123, Rasterize: 0.641, Backward: 0.471
+Total(s):
+Project: 0.119, Rasterize: 0.641, Backward: 0.450
+Total(s):
+Project: 0.123, Rasterize: 0.640, Backward: 0.471
+Total(s):
+Project: 0.121, Rasterize: 0.644, Backward: 0.471
+Total(s):
+Project: 0.124, Rasterize: 0.645, Backward: 0.474
+Total(s):
+Project: 0.128, Rasterize: 0.644, Backward: 0.475
+Total(s):
+Project: 0.127, Rasterize: 0.638, Backward: 0.470
+Total(s):
+Project: 0.123, Rasterize: 0.636, Backward: 0.474
+Total(s):
+Project: 0.123, Rasterize: 0.641, Backward: 0.476
+Total(s):
+Project: 0.123, Rasterize: 0.646, Backward: 0.478
+Total(s):
+Project: 0.122, Rasterize: 0.643, Backward: 0.456
+Total(s):
+Project: 0.121, Rasterize: 0.648, Backward: 0.481
+Total(s):
+Project: 0.122, Rasterize: 0.650, Backward: 0.456
+Total(s):
+Project: 0.118, Rasterize: 0.645, Backward: 0.455
+Total(s):
+Project: 0.123, Rasterize: 0.653, Backward: 0.463
+Total(s):
+Project: 0.133, Rasterize: 0.652, Backward: 0.532
+Total(s):
+Project: 0.123, Rasterize: 0.645, Backward: 0.489
+Total(s):
+Project: 0.116, Rasterize: 0.645, Backward: 0.447
+Total(s):
+Project: 0.118, Rasterize: 0.649, Backward: 0.499
+Total(s):
+Project: 0.120, Rasterize: 0.654, Backward: 0.464
+Total(s):
+Project: 0.124, Rasterize: 0.651, Backward: 0.478
+Total(s):
+Project: 0.123, Rasterize: 0.648, Backward: 0.477
+Total(s):
+Project: 0.123, Rasterize: 0.648, Backward: 0.476
+Total(s):
+Project: 0.118, Rasterize: 0.645, Backward: 0.472
+Total(s):
+Project: 0.124, Rasterize: 0.646, Backward: 0.474
+Total(s):
+Project: 0.123, Rasterize: 0.646, Backward: 0.472
+Total(s):
+Project: 0.123, Rasterize: 0.646, Backward: 0.475
+Total(s):
+Project: 0.124, Rasterize: 0.648, Backward: 0.479
+Total(s):
+Project: 0.123, Rasterize: 0.643, Backward: 0.470
+Total(s):
+Project: 0.128, Rasterize: 0.645, Backward: 0.507
+Total(s):
+Project: 0.119, Rasterize: 0.642, Backward: 0.476
+Total(s):
+Project: 0.118, Rasterize: 0.643, Backward: 0.503
+Total(s):
+Project: 0.123, Rasterize: 0.643, Backward: 0.512
+Total(s):
+Project: 0.122, Rasterize: 0.645, Backward: 0.471
+Total(s):
+Project: 0.124, Rasterize: 0.642, Backward: 0.491
+Total(s):
+Project: 0.121, Rasterize: 0.639, Backward: 0.459
+Total(s):
+Project: 0.122, Rasterize: 0.645, Backward: 0.482
+Total(s):
+Project: 0.124, Rasterize: 0.651, Backward: 0.515
+Total(s):
+Project: 0.121, Rasterize: 0.654, Backward: 0.459
+Total(s):
+Project: 0.122, Rasterize: 0.658, Backward: 0.483
+Total(s):
+Project: 0.122, Rasterize: 0.658, Backward: 0.465
+Total(s):
+Project: 0.120, Rasterize: 0.667, Backward: 0.464
+Total(s):
+Project: 0.123, Rasterize: 0.665, Backward: 0.482
+Total(s):
+Project: 0.120, Rasterize: 0.666, Backward: 0.467
+Total(s):
+Project: 0.119, Rasterize: 0.662, Backward: 0.480
+Total(s):
+Project: 0.121, Rasterize: 0.666, Backward: 0.494
+Total(s):
+Project: 0.123, Rasterize: 0.667, Backward: 0.478
+Total(s):
+Project: 0.124, Rasterize: 0.673, Backward: 0.484
+Total(s):
+Project: 0.123, Rasterize: 0.673, Backward: 0.491
+Total(s):
+Project: 0.122, Rasterize: 0.668, Backward: 0.531
+Total(s):
+Project: 0.326, Rasterize: 0.640, Backward: 0.658
+Total(s):
+Project: 0.336, Rasterize: 0.674, Backward: 0.647
+Total(s):
+Project: 0.334, Rasterize: 0.633, Backward: 0.654
+Total(s):
+Project: 0.328, Rasterize: 0.626, Backward: 0.631
+Total(s):
+Project: 0.332, Rasterize: 0.671, Backward: 0.613
+Total(s):
+Project: 0.329, Rasterize: 0.620, Backward: 0.596
+Total(s):
+Project: 0.330, Rasterize: 0.640, Backward: 0.614

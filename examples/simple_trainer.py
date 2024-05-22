@@ -11,6 +11,10 @@ from gsplat.project_gaussians import project_gaussians
 from gsplat.rasterize import rasterize_gaussians
 from PIL import Image
 from torch import Tensor, optim
+import gsplat._torch_impl
+import torch.nn.functional as F
+import torchvision.transforms as transforms
+from PIL import Image
 
 
 class SimpleTrainer:
@@ -147,19 +151,29 @@ class SimpleTrainer:
             out_dir = os.path.join(os.getcwd(), "renders")
             os.makedirs(out_dir, exist_ok=True)
             frames[0].save(
-                f"{out_dir}/training.gif",
+                f"{out_dir}/trainingCUDA.gif", # change this to prevent overwriting existing training gifs
                 save_all=True,
                 append_images=frames[1:],
                 optimize=False,
                 duration=5,
                 loop=0,
             )
-        print(
-            f"Total(s):\nProject: {times[0]:.3f}, Rasterize: {times[1]:.3f}, Backward: {times[2]:.3f}"
-        )
+            # save only the last frame as a PNG 
+            last_frame = frames[-1]
+            out_dir = os.path.join(os.getcwd(), "renders")
+            os.makedirs(out_dir, exist_ok=True)
+            last_frame.save(
+                f"{out_dir}/last_frameCUDA.png",  # Change this to prevent overwriting existing files
+                format="PNG"
+            )
+        totalResults = f"Total(s):\nProject: {times[0]:.3f}, Rasterize: {times[1]:.3f}, Backward: {times[2]:.3f}"
+        print(totalResults)
         print(
             f"Per step(s):\nProject: {times[0]/iterations:.5f}, Rasterize: {times[1]/iterations:.5f}, Backward: {times[2]/iterations:.5f}"
         )
+        file_name = "CUDA_results.txt"
+        with open(file_name, "a") as file:
+            file.write(totalResults + "\n")
 
 
 def image_path_to_tensor(image_path: Path):
@@ -170,13 +184,32 @@ def image_path_to_tensor(image_path: Path):
     img_tensor = transform(img).permute(1, 2, 0)[..., :3]
     return img_tensor
 
+def load_image_as_tensor(image_path):
+    """
+    Converts image to tensor
+    """
+    image = Image.open(image_path)
+    transform = transforms.ToTensor()
+    tensor = transform(image)
+    return tensor
+
+def calculatePSNR(input, output):
+    """
+    Calculate PSNR between GT and final render.
+    """
+    mse = F.mse_loss(input, output)
+    if mse == 0:
+        return float('inf')
+    max_pixel = 1.0 if input.max() <= 1 else 255.0
+    psnr = 20 * torch.log10(max_pixel / torch.sqrt(mse))
+    return psnr.item()
 
 def main(
-    height: int = 256,
-    width: int = 256,
-    num_points: int = 100000,
-    save_imgs: bool = True,
-    img_path: Optional[Path] = None,
+    height: int = 822, #822
+    width: int = 1237, #1237
+    num_points: int = 2000, # orig: 100000
+    save_imgs: bool = True, # change this to get the resulting image
+    img_path: Optional[Path] = 'bikeImage.png',
     iterations: int = 1000,
     lr: float = 0.01,
 ) -> None:
@@ -189,12 +222,16 @@ def main(
         gt_image[height // 2 :, width // 2 :, :] = torch.tensor([0.0, 0.0, 1.0])
 
     trainer = SimpleTrainer(gt_image=gt_image, num_points=num_points)
-    trainer.train(
-        iterations=iterations,
-        lr=lr,
-        save_imgs=save_imgs,
-    )
-
+    for i in range(99):
+        trainer.train(
+            iterations=iterations,
+            lr=lr,
+            save_imgs=save_imgs,
+        )
+    output_image = load_image_as_tensor('renders/last_frameCUDA.png')
+    output_image = output_image.permute(1, 2, 0)  # Change from (3, 822, 1237) to (822, 1237, 3)
+    psnr = calculatePSNR(gt_image,output_image)
+    print("PSNR: " + str(psnr))
 
 if __name__ == "__main__":
     tyro.cli(main)
