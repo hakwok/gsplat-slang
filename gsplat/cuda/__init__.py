@@ -1,5 +1,7 @@
 from typing import Callable
+import slangpy
 
+m = slangpy.loadModule('forward.slang') # add parameters when necessary
 
 def _make_lazy_cuda_func(name: str) -> Callable:
     def call_cuda(*args, **kwargs):
@@ -7,6 +9,9 @@ def _make_lazy_cuda_func(name: str) -> Callable:
         from ._backend import _C
 
         return getattr(_C, name)(*args, **kwargs)
+
+    def call_slang():
+        return getattr(m, name)
 
     return call_cuda
 

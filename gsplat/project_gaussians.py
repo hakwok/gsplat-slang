@@ -9,6 +9,8 @@ from torch.autograd import Function
 
 import gsplat.cuda as _C
 
+# Import the PyTorch forward implementation
+from ._torch_impl import project_gaussians_forward
 
 def project_gaussians(
     means3d: Float[Tensor, "*batch 3"],
