@@ -8,13 +8,11 @@ from torch import Tensor
 from torch.autograd import Function
 
 import gsplat.cuda as _C
-import slangtorch
 
 # Import the PyTorch implementation instead
 from ._torch_impl import rasterize_forward
 from .utils import bin_and_sort_gaussians, compute_cumulative_intersects
 
-m = slangtorch.loadModule('forward.slang')
 
 def rasterize_gaussians(
     xys: Float[Tensor, "*batch 2"],
@@ -219,7 +217,7 @@ class _RasterizeGaussians(Function):
                 rasterize_fn = _C.rasterize_backward
             else:
                 rasterize_fn = _C.nd_rasterize_backward
-            v_xy, v_conic, v_colors, v_opacity, block_size, num_batches = rasterize_fn(
+            v_xy, v_conic, v_colors, v_opacity = rasterize_fn(
                 img_height,
                 img_width,
                 ctx.block_width,
@@ -235,8 +233,6 @@ class _RasterizeGaussians(Function):
                 v_out_img,
                 v_out_alpha,
             )
-        
-        m.rasterize_backward.bwd(input=(v_xy, v_conic, v_colors, v_opacity), output=(v_xy, v_conic, v_colors, v_opacity)).launchRaw(blockSize=block_size, gridSize=num_batches)
 
         return (
             v_xy,  # xys

@@ -151,7 +151,7 @@ class SimpleTrainer:
             out_dir = os.path.join(os.getcwd(), "renders")
             os.makedirs(out_dir, exist_ok=True)
             frames[0].save(
-                f"{out_dir}/trainingSlang.gif", # change this to prevent overwriting existing training gifs
+                f"{out_dir}/trainingCUDA.gif", # change this to prevent overwriting existing training gifs
                 save_all=True,
                 append_images=frames[1:],
                 optimize=False,
@@ -163,7 +163,7 @@ class SimpleTrainer:
             out_dir = os.path.join(os.getcwd(), "renders")
             os.makedirs(out_dir, exist_ok=True)
             last_frame.save(
-                f"{out_dir}/last_frameSlang.png",  # Change this to prevent overwriting existing files
+                f"{out_dir}/last_frameCUDA.png",  # Change this to prevent overwriting existing files
                 format="PNG"
             )
         totalResults = f"Total(s):\nProject: {times[0]:.3f}, Rasterize: {times[1]:.3f}, Backward: {times[2]:.3f}"
@@ -171,7 +171,7 @@ class SimpleTrainer:
         print(
             f"Per step(s):\nProject: {times[0]/iterations:.5f}, Rasterize: {times[1]/iterations:.5f}, Backward: {times[2]/iterations:.5f}"
         )
-        file_name = "Slang_results.txt"
+        file_name = "CUDA_results.txt"
         with open(file_name, "a") as file:
             file.write(totalResults + "\n")
 
@@ -228,7 +228,7 @@ def main(
             lr=lr,
             save_imgs=save_imgs,
         )
-    output_image = load_image_as_tensor('renders/last_frameSlang.png')
+    output_image = load_image_as_tensor('renders/last_frameCUDA.png')
     output_image = output_image.permute(1, 2, 0)  # Change from (3, 822, 1237) to (822, 1237, 3)
     psnr = calculatePSNR(gt_image,output_image)
     print("PSNR: " + str(psnr))
