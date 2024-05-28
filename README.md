@@ -1,7 +1,7 @@
 # gsplat
 
 ## Notice:
-All commits to this forked repository have been made by Hayden Kwok through an SSH computer provided by the Center for Visual Computing at UC San Diego.
+All commits to this forked repository have been made by Hayden Kwok through an SSH computer provided by the Center for Visual Computing at UC San Diego Computer Science and Engineering Department.
 
 [![Core Tests.](https://github.com/nerfstudio-project/gsplat/actions/workflows/core_tests.yml/badge.svg?branch=main)](https://github.com/nerfstudio-project/gsplat/actions/workflows/core_tests.yml)
 [![Docs](https://github.com/nerfstudio-project/gsplat/actions/workflows/doc.yml/badge.svg?branch=main)](https://github.com/nerfstudio-project/gsplat/actions/workflows/doc.yml)
