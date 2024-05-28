@@ -1,7 +1,7 @@
 from typing import Callable
-import slangpy
+import slangtorch
 
-m = slangpy.loadModule('forward.slang') # add parameters when necessary
+m = slangtorch.loadModule('forward.slang') # add parameters when necessary
 
 def _make_lazy_cuda_func(name: str) -> Callable:
     def call_cuda(*args, **kwargs):

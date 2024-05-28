@@ -8,9 +8,12 @@ from torch import Tensor
 from torch.autograd import Function
 
 import gsplat.cuda as _C
+import slangtorch
 
 # Import the PyTorch forward implementation
 from ._torch_impl import project_gaussians_forward
+
+m = slangtorch.loadModule('forward.slang')
 
 def project_gaussians(
     means3d: Float[Tensor, "*batch 3"],
@@ -172,7 +175,7 @@ class _ProjectGaussians(Function):
             compensation,
         ) = ctx.saved_tensors
 
-        (v_cov2d, v_cov3d, v_mean3d, v_scale, v_quat) = _C.project_gaussians_backward(
+        (v_cov2d, v_cov3d, v_mean3d, v_scale, v_quat, output_block_size, output_num_batches) = _C.project_gaussians_backward(
             ctx.num_points,
             means3d,
             scales,
@@ -194,6 +197,8 @@ class _ProjectGaussians(Function):
             v_conics,
             v_compensation,
         )
+
+        m.project_gaussians_backward.bwd(input=(v_mean3d, v_scale, v_quat,), output=(v_mean3d, v_scale, v_quat)).launchRaw(blockSize=output_block_size, gridSize=output_num_batches)
 
         if viewmat.requires_grad:
             v_viewmat = torch.zeros_like(viewmat)
