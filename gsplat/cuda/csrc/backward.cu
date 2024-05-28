@@ -149,7 +149,9 @@ __global__ void rasterize_backward_kernel(
     float2* __restrict__ v_xy,
     float3* __restrict__ v_conic,
     float3* __restrict__ v_rgb,
-    float* __restrict__ v_opacity
+    float* __restrict__ v_opacity,
+    int* __restrict__ block_size,
+    int* __restrict__ num_batches 
 ) {
     auto block = cg::this_thread_block();
     int32_t tile_id =
@@ -333,7 +335,9 @@ __global__ void project_gaussians_backward_kernel(
     float* __restrict__ v_cov3d,
     float3* __restrict__ v_mean3d,
     float3* __restrict__ v_scale,
-    float4* __restrict__ v_quat
+    float4* __restrict__ v_quat,
+    int* __restrict__ output_block_size,
+    int* __restrict__ output_num_batches
 ) {
     unsigned idx = cg::this_grid().thread_rank(); // idx of thread within grid
     if (idx >= num_points || radii[idx] <= 0) {
@@ -351,6 +355,10 @@ __global__ void project_gaussians_backward_kernel(
     // get z gradient contribution to mean3d gradient
     // z = viemwat[8] * mean3d.x + viewmat[9] * mean3d.y + viewmat[10] *
     // mean3d.z + viewmat[11]
+
+    int block_size = block.size();
+    int num_batches = (range.y - range.x + block_size - 1) / block_size;
+
     float v_z = v_depth[idx];
     v_mean3d[idx].x += viewmat[8] * v_z;
     v_mean3d[idx].y += viewmat[9] * v_z;
@@ -379,6 +387,11 @@ __global__ void project_gaussians_backward_kernel(
         v_scale[idx],
         v_quat[idx]
     );
+
+    if (idx == 0) { // Only write these values once, from the first thread
+        output_block_size[0] = block_size;
+        output_num_batches[0] = num_batches;
+    }
 }
 
 // output space: 2D covariance, input space: cov3d
